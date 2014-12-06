@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA687CB41A31DC480091D0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA687CB31A31DC480091D0A7 /* AppDelegate.swift */; };
+		AA687CBB1A31DC480091D0A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA687CBA1A31DC480091D0A7 /* Images.xcassets */; };
+		AA687CBE1A31DC480091D0A7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */; };
+		AA687CCA1A31DC480091D0A7 /* CoolKanjiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA687CC91A31DC480091D0A7 /* CoolKanjiTests.swift */; };
+		AA687CD41A31E0970091D0A7 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA687CD31A31E0970091D0A7 /* TitleViewController.swift */; };
+		AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */; };
+		AA6FCC4F1A3200D4009225F0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */; };
+		AA6FCC511A327F75009225F0 /* testDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AA6FCC501A327F75009225F0 /* testDB.db */; };
+		AA6FCC5E1A328042009225F0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC541A328042009225F0 /* FMDatabase.m */; };
+		AA6FCC5F1A328042009225F0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC561A328042009225F0 /* FMDatabaseAdditions.m */; };
+		AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC581A328042009225F0 /* FMDatabasePool.m */; };
+		AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5A1A328042009225F0 /* FMDatabaseQueue.m */; };
+		AA6FCC621A328042009225F0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5D1A328042009225F0 /* FMResultSet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA687CC41A31DC480091D0A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA687CA61A31DC480091D0A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA687CAD1A31DC480091D0A7;
+			remoteInfo = CoolKanji;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA687CAE1A31DC480091D0A7 /* CoolKanji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolKanji.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA687CB21A31DC480091D0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA687CB31A31DC480091D0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA687CBA1A31DC480091D0A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AA687CBD1A31DC480091D0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AA687CC31A31DC480091D0A7 /* CoolKanjiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolKanjiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA687CC81A31DC480091D0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA687CC91A31DC480091D0A7 /* CoolKanjiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolKanjiTests.swift; sourceTree = "<group>"; };
+		AA687CD31A31E0970091D0A7 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
+		AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolKanji-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		AA6FCC501A327F75009225F0 /* testDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.db; sourceTree = "<group>"; };
+		AA6FCC531A328042009225F0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		AA6FCC541A328042009225F0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		AA6FCC551A328042009225F0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		AA6FCC561A328042009225F0 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		AA6FCC571A328042009225F0 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		AA6FCC581A328042009225F0 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		AA6FCC591A328042009225F0 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		AA6FCC5A1A328042009225F0 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		AA6FCC5B1A328042009225F0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		AA6FCC5C1A328042009225F0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		AA6FCC5D1A328042009225F0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA687CAB1A31DC480091D0A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA6FCC4F1A3200D4009225F0 /* libsqlite3.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA687CC01A31DC480091D0A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA687CA51A31DC480091D0A7 = {
+			isa = PBXGroup;
+			children = (
+				AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */,
+				AA687CB01A31DC480091D0A7 /* CoolKanji */,
+				AA687CC61A31DC480091D0A7 /* CoolKanjiTests */,
+				AA687CAF1A31DC480091D0A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA687CAF1A31DC480091D0A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA687CAE1A31DC480091D0A7 /* CoolKanji.app */,
+				AA687CC31A31DC480091D0A7 /* CoolKanjiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA687CB01A31DC480091D0A7 /* CoolKanji */ = {
+			isa = PBXGroup;
+			children = (
+				AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */,
+				AA6FCC521A328042009225F0 /* FMDB */,
+				AA687CD31A31E0970091D0A7 /* TitleViewController.swift */,
+				AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */,
+				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
+				AA687CBA1A31DC480091D0A7 /* Images.xcassets */,
+				AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */,
+				AA6FCC501A327F75009225F0 /* testDB.db */,
+				AA687CB11A31DC480091D0A7 /* Supporting Files */,
+			);
+			path = CoolKanji;
+			sourceTree = "<group>";
+		};
+		AA687CB11A31DC480091D0A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA687CB21A31DC480091D0A7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA687CC61A31DC480091D0A7 /* CoolKanjiTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA687CC91A31DC480091D0A7 /* CoolKanjiTests.swift */,
+				AA687CC71A31DC480091D0A7 /* Supporting Files */,
+			);
+			path = CoolKanjiTests;
+			sourceTree = "<group>";
+		};
+		AA687CC71A31DC480091D0A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA687CC81A31DC480091D0A7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA6FCC521A328042009225F0 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				AA6FCC531A328042009225F0 /* FMDatabase.h */,
+				AA6FCC541A328042009225F0 /* FMDatabase.m */,
+				AA6FCC551A328042009225F0 /* FMDatabaseAdditions.h */,
+				AA6FCC561A328042009225F0 /* FMDatabaseAdditions.m */,
+				AA6FCC571A328042009225F0 /* FMDatabasePool.h */,
+				AA6FCC581A328042009225F0 /* FMDatabasePool.m */,
+				AA6FCC591A328042009225F0 /* FMDatabaseQueue.h */,
+				AA6FCC5A1A328042009225F0 /* FMDatabaseQueue.m */,
+				AA6FCC5B1A328042009225F0 /* FMDB.h */,
+				AA6FCC5C1A328042009225F0 /* FMResultSet.h */,
+				AA6FCC5D1A328042009225F0 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA687CAD1A31DC480091D0A7 /* CoolKanji */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA687CCD1A31DC480091D0A7 /* Build configuration list for PBXNativeTarget "CoolKanji" */;
+			buildPhases = (
+				AA687CAA1A31DC480091D0A7 /* Sources */,
+				AA687CAB1A31DC480091D0A7 /* Frameworks */,
+				AA687CAC1A31DC480091D0A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoolKanji;
+			productName = CoolKanji;
+			productReference = AA687CAE1A31DC480091D0A7 /* CoolKanji.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA687CC21A31DC480091D0A7 /* CoolKanjiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA687CD01A31DC480091D0A7 /* Build configuration list for PBXNativeTarget "CoolKanjiTests" */;
+			buildPhases = (
+				AA687CBF1A31DC480091D0A7 /* Sources */,
+				AA687CC01A31DC480091D0A7 /* Frameworks */,
+				AA687CC11A31DC480091D0A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA687CC51A31DC480091D0A7 /* PBXTargetDependency */,
+			);
+			name = CoolKanjiTests;
+			productName = CoolKanjiTests;
+			productReference = AA687CC31A31DC480091D0A7 /* CoolKanjiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA687CA61A31DC480091D0A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = kayama;
+				TargetAttributes = {
+					AA687CAD1A31DC480091D0A7 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					AA687CC21A31DC480091D0A7 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = AA687CAD1A31DC480091D0A7;
+					};
+				};
+			};
+			buildConfigurationList = AA687CA91A31DC480091D0A7 /* Build configuration list for PBXProject "CoolKanji" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA687CA51A31DC480091D0A7;
+			productRefGroup = AA687CAF1A31DC480091D0A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA687CAD1A31DC480091D0A7 /* CoolKanji */,
+				AA687CC21A31DC480091D0A7 /* CoolKanjiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA687CAC1A31DC480091D0A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA687CBE1A31DC480091D0A7 /* LaunchScreen.xib in Resources */,
+				AA687CBB1A31DC480091D0A7 /* Images.xcassets in Resources */,
+				AA6FCC511A327F75009225F0 /* testDB.db in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA687CC11A31DC480091D0A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA687CAA1A31DC480091D0A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA687CB41A31DC480091D0A7 /* AppDelegate.swift in Sources */,
+				AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */,
+				AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */,
+				AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */,
+				AA687CD41A31E0970091D0A7 /* TitleViewController.swift in Sources */,
+				AA6FCC5E1A328042009225F0 /* FMDatabase.m in Sources */,
+				AA6FCC621A328042009225F0 /* FMResultSet.m in Sources */,
+				AA6FCC5F1A328042009225F0 /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA687CBF1A31DC480091D0A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA687CCA1A31DC480091D0A7 /* CoolKanjiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA687CC51A31DC480091D0A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA687CAD1A31DC480091D0A7 /* CoolKanji */;
+			targetProxy = AA687CC41A31DC480091D0A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA687CBD1A31DC480091D0A7 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA687CCB1A31DC480091D0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA687CCC1A31DC480091D0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA687CCE1A31DC480091D0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoolKanji/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/$(PROJECT)-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		AA687CCF1A31DC480091D0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CoolKanji/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/$(PROJECT)-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		AA687CD11A31DC480091D0A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CoolKanjiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolKanji.app/CoolKanji";
+			};
+			name = Debug;
+		};
+		AA687CD21A31DC480091D0A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CoolKanjiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolKanji.app/CoolKanji";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA687CA91A31DC480091D0A7 /* Build configuration list for PBXProject "CoolKanji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA687CCB1A31DC480091D0A7 /* Debug */,
+				AA687CCC1A31DC480091D0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA687CCD1A31DC480091D0A7 /* Build configuration list for PBXNativeTarget "CoolKanji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA687CCE1A31DC480091D0A7 /* Debug */,
+				AA687CCF1A31DC480091D0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA687CD01A31DC480091D0A7 /* Build configuration list for PBXNativeTarget "CoolKanjiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA687CD11A31DC480091D0A7 /* Debug */,
+				AA687CD21A31DC480091D0A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA687CA61A31DC480091D0A7 /* Project object */;
+}
