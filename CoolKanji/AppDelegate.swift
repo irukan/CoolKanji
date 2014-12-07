@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.WWidth = window?.bounds.width
         self.WHeight = window?.bounds.height
-        self.japanRed = UIColor(red: 194, green: 32, blue: 71, alpha: 1.0)
+        self.japanRed = UIColor(red: 230.0/255.0, green: 32.0/255.0, blue: 71.0/255.0, alpha: 1.0)
         
         // FMDB init with CoolKnji data
         let dataPath = NSBundle.mainBundle().pathForResource("testDB", ofType: "db")
@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ナビゲーションバー消す
         self.navController?.navigationBarHidden = true
         self.window?.rootViewController = navController
+        //self.window?.rootViewController = KanjiViewController()
         self.window?.makeKeyAndVisible()
         
 
