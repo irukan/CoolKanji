@@ -103,10 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */,
+				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
 				AA6FCC521A328042009225F0 /* FMDB */,
 				AA687CD31A31E0970091D0A7 /* TitleViewController.swift */,
 				AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */,
-				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
 				AA0B14F91A32C50100C2754A /* KanjiViewController.swift */,
 				AA687CBA1A31DC480091D0A7 /* Images.xcassets */,
 				AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */,
@@ -208,6 +208,7 @@
 				TargetAttributes = {
 					AA687CAD1A31DC480091D0A7 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = GXG8RYLHJJ;
 					};
 					AA687CC21A31DC480091D0A7 = {
 						CreatedOnToolsVersion = 6.1;

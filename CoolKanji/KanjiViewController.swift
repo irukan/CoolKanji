@@ -40,14 +40,37 @@ class KanjiViewController: UICollectionViewController {
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
         
-        // index1, index2の階層を取得. このやり方は後で変える?
-        let categories = ad.navController!.viewControllers as NSArray
+        // 上位階層のCateforyViewControllerの選択項目を取得する　←後で共通化する
+        let parentInformation: NSMutableArray = NSMutableArray()
+        
+        let viewCs = ad.navController!.viewControllers as NSArray
+        for (var i=0; i<viewCs.count; i++)
+        {
+            let tempViewC: AnyObject = viewCs.objectAtIndex(i)
+            if (tempViewC as? CategoryViewController != nil)
+            {
+                parentInformation.addObject(parentInfo(setItem: (tempViewC as CategoryViewController).m_setItem,
+                                                        column: (tempViewC as CategoryViewController).m_column))
+            }
+            
+        }
+        
+        var whereCmdInput: String = ""
+        for (var l = 0; l < parentInformation.count; l++)
+        {
+            if(l != 0)
+            {
+                whereCmdInput += " and "
+            }
+            
+            whereCmdInput += (parentInformation.objectAtIndex(l) as parentInfo).m_column
+                + "=\""
+                + (parentInformation.objectAtIndex(l) as parentInfo).m_setItem
+                + "\""
+        }
+        
 
-        setItem_index1 = (categories.objectAtIndex(1) as CategoryViewController).m_setItem
-        setItem_index2 = (categories.objectAtIndex(2) as CategoryViewController).m_setItem
-
-        let whereInput = "index1=\"" + setItem_index1 + "\" and index2=\"" + setItem_index2 + "\";"
-        kanjiData = ad.selectDB(false, column: "kanji", whereCmd: whereInput)
+        kanjiData = ad.selectDB(false, column: "kanji", whereCmd: whereCmdInput)
         
     }
 
@@ -89,11 +112,20 @@ class KanjiViewController: UICollectionViewController {
         cell.layer.borderColor = UIColor.greenColor().CGColor
         cell.layer.borderWidth = 1.0
         
+        let getText: String = kanjiData.objectAtIndex(indexPath.item) as String
+        let numText:Int = countElements(getText)
+        cell.bounds.size = CGSizeMake((cell.bounds.width) * CGFloat(numText), cell.bounds.height)
         // 毎回addSubViewしたら大変なことになる...
         if ((cell.subviews).count == 1)
         {
-            let lbl = UILabel(frame: CGRectMake(0, 10, 20, 20))
-            lbl.text = kanjiData.objectAtIndex(indexPath.item) as String
+            let lbl = UILabel()
+            lbl.frame.size = cell.frame.size
+            lbl.frame.origin = CGPointMake(0, 0)
+            lbl.font = UIFont(name: "HiraKakuProN-W6", size: cell.bounds.height)
+            
+            lbl.sizeThatFits(cell.bounds.size)
+            lbl.text = getText
+            
             cell.addSubview(lbl)
         }
         return cell

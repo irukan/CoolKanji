@@ -8,6 +8,17 @@
 
 import UIKit
 
+class parentInfo: NSObject {
+    var m_setItem: String!
+    var m_column: String!
+    
+    init(setItem: String, column: String)
+    {
+        m_setItem = setItem
+        m_column = column
+    }
+}
+
 class CategoryViewController: UIViewController {
 
 
@@ -18,6 +29,7 @@ class CategoryViewController: UIViewController {
     var items: NSMutableArray!
     var buttons: NSMutableArray!
     
+    
     init(columnName: String) {
         super.init(nibName: nil, bundle: nil)
         
@@ -26,7 +38,35 @@ class CategoryViewController: UIViewController {
         
         m_column = columnName
         
-        items = ad.selectDB(true, column: m_column, whereCmd: "")
+        // 上位階層のCateforyViewControllerの選択項目を取得する　←後で共通化する
+        let parentInformation: NSMutableArray = NSMutableArray()
+        
+        let viewCs = ad.navController!.viewControllers as NSArray
+        for (var i=0; i<viewCs.count; i++)
+        {
+            let tempViewC: AnyObject = viewCs.objectAtIndex(i)
+            if (tempViewC as? CategoryViewController != nil)
+            {
+                parentInformation.addObject(parentInfo(setItem: tempViewC.m_setItem, column: tempViewC.m_column))
+            }
+    
+        }
+        
+        var whereCmdInput: String = ""
+        for (var l = 0; l < parentInformation.count; l++)
+        {
+            if(l != 0)
+            {
+                whereCmdInput += " and "
+            }
+            
+            whereCmdInput += (parentInformation.objectAtIndex(l) as parentInfo).m_column
+                            + "=\""
+                                + (parentInformation.objectAtIndex(l) as parentInfo).m_setItem
+                                    + "\""
+        }
+        
+        items = ad.selectDB(true, column: m_column, whereCmd: whereCmdInput)
         buttons = NSMutableArray()
         
         for (var i = 0; i < items.count; i++)

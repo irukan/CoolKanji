@@ -36,14 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.navController = UINavigationController(rootViewController: TitleViewController())
         // ナビゲーションバー消す
-        self.navController?.navigationBarHidden = true
+       // self.navController?.navigationBarHidden = true
+        //self.navController?.interactivePopGestureRecognizer.enabled = true
         self.window?.rootViewController = navController
-        //self.window?.rootViewController = KanjiViewController()
         self.window?.makeKeyAndVisible()
-        
 
-        
-        
         return true
     }
 
@@ -55,21 +52,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // DB open
         self.db.open()
         
-        var sqlCmd : String!
+        var sqlCmd = "SELECT "
+                
+        if (distinct == true)
+        {
+            sqlCmd += "DISTINCT "
+        }
+        
         if (whereCmd.isEmpty == false)
         {
-            sqlCmd = "SELECT " + column + " FROM CoolKanjiData WHERE " + whereCmd + ";"
+            sqlCmd += column + " FROM CoolKanjiData WHERE " + whereCmd + ";"
         }
         else
         {
-            if (distinct == true)
-            {
-                sqlCmd = "SELECT DISTINCT " + column + " FROM CoolKanjiData;"
-            }
-            else
-            {
-                sqlCmd = "SELECT " + column + " FROM CoolKanjiData;"
-            }
+            sqlCmd += column + " FROM CoolKanjiData;"
         }
         
         let results : FMResultSet = db.executeQuery(sqlCmd, withArgumentsInArray: nil)

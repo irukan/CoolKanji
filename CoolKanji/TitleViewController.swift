@@ -28,7 +28,9 @@ class TitleViewController: UIViewController {
 //        titleLbl.center = CGPointMake(ad.WWidth/2.0, ad.WHeight/2.0)
 //        titleLbl.textAlignment = NSTextAlignment.Center
 
-        let titleLbl = UILabel(frame: CGRectMake(100, 100, 300, 100))
+        let titleLbl = UILabel(frame: CGRectMake(50, 100, 300, 100))
+        titleLbl.sizeThatFits(CGSizeMake(300, 100))
+        titleLbl.font = UIFont(name: "HiraKakuProN-W6", size: 50)
         titleLbl.textColor = UIColor.blackColor()
         titleLbl.text = "Cool Kanji"
         self.view.addSubview(titleLbl)
