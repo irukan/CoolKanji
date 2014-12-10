@@ -21,6 +21,10 @@
 		AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC581A328042009225F0 /* FMDatabasePool.m */; };
 		AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5A1A328042009225F0 /* FMDatabaseQueue.m */; };
 		AA6FCC621A328042009225F0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5D1A328042009225F0 /* FMResultSet.m */; };
+		AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8948B71A35C91E00590784 /* DisplayViewController.swift */; };
+		AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8948BC1A37487100590784 /* ackaisyo.ttf */; };
+		AA8948C81A374B2500590784 /* hakushuKyosho in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C71A374B2500590784 /* hakushuKyosho */; };
+		AA8948CA1A374D0300590784 /* 白舟楷書教漢 in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C91A374D0300590784 /* 白舟楷書教漢 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		AA6FCC5B1A328042009225F0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		AA6FCC5C1A328042009225F0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		AA6FCC5D1A328042009225F0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		AA8948B71A35C91E00590784 /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
+		AA8948BC1A37487100590784 /* ackaisyo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ackaisyo.ttf; path = font/ackaisyo.ttf; sourceTree = "<group>"; };
+		AA8948C71A374B2500590784 /* hakushuKyosho */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hakushuKyosho; path = font/hakushuKyosho; sourceTree = "<group>"; };
+		AA8948C91A374D0300590784 /* 白舟楷書教漢 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "白舟楷書教漢"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +110,14 @@
 		AA687CB01A31DC480091D0A7 /* CoolKanji */ = {
 			isa = PBXGroup;
 			children = (
+				AA8948BB1A3746E500590784 /* Font */,
 				AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */,
 				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
 				AA6FCC521A328042009225F0 /* FMDB */,
 				AA687CD31A31E0970091D0A7 /* TitleViewController.swift */,
 				AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */,
 				AA0B14F91A32C50100C2754A /* KanjiViewController.swift */,
+				AA8948B71A35C91E00590784 /* DisplayViewController.swift */,
 				AA687CBA1A31DC480091D0A7 /* Images.xcassets */,
 				AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */,
 				AA6FCC501A327F75009225F0 /* testDB.db */,
@@ -157,6 +167,16 @@
 				AA6FCC5D1A328042009225F0 /* FMResultSet.m */,
 			);
 			path = FMDB;
+			sourceTree = "<group>";
+		};
+		AA8948BB1A3746E500590784 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AA8948C71A374B2500590784 /* hakushuKyosho */,
+				AA8948BC1A37487100590784 /* ackaisyo.ttf */,
+				AA8948C91A374D0300590784 /* 白舟楷書教漢 */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8948CA1A374D0300590784 /* 白舟楷書教漢 in Resources */,
+				AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */,
 				AA687CBE1A31DC480091D0A7 /* LaunchScreen.xib in Resources */,
 				AA687CBB1A31DC480091D0A7 /* Images.xcassets in Resources */,
+				AA8948C81A374B2500590784 /* hakushuKyosho in Resources */,
 				AA6FCC511A327F75009225F0 /* testDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +288,7 @@
 				AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */,
 				AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */,
 				AA687CD41A31E0970091D0A7 /* TitleViewController.swift in Sources */,
+				AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */,
 				AA6FCC5E1A328042009225F0 /* FMDatabase.m in Sources */,
 				AA6FCC621A328042009225F0 /* FMResultSet.m in Sources */,
 				AA6FCC5F1A328042009225F0 /* FMDatabaseAdditions.m in Sources */,

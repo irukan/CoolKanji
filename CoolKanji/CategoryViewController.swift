@@ -29,7 +29,6 @@ class CategoryViewController: UIViewController {
     var items: NSMutableArray!
     var buttons: NSMutableArray!
     
-    
     init(columnName: String) {
         super.init(nibName: nil, bundle: nil)
         

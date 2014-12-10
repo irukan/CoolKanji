@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.navController = UINavigationController(rootViewController: TitleViewController())
         // ナビゲーションバー消す
-       // self.navController?.navigationBarHidden = true
+        //self.navController?.navigationBarHidden = true
         //self.navController?.interactivePopGestureRecognizer.enabled = true
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()

@@ -16,14 +16,17 @@ class KanjiViewController: UICollectionViewController {
     var setItem_index1: String!
     var setItem_index2: String!
     var kanjiData: NSMutableArray!
+    var indexData: NSMutableArray!
+    
+    var defaultSize: CGSize!
     
     override init() {
 
         //レイアウト
         let layout = UICollectionViewFlowLayout()
-        
+        defaultSize = CGSizeMake(80, 80)
         // セルのサイズ
-        layout.itemSize = CGSizeMake(100, 100)
+        layout.itemSize = defaultSize
         // セクションごとのヘッダーのサイズ
         layout.headerReferenceSize = CGSizeMake(0, 0)
         // セクションごとのフッターのサイズ
@@ -71,7 +74,7 @@ class KanjiViewController: UICollectionViewController {
         
 
         kanjiData = ad.selectDB(false, column: "kanji", whereCmd: whereCmdInput)
-        
+        indexData = ad.selectDB(false, column: "index3", whereCmd: whereCmdInput) // 後で治す
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -104,6 +107,17 @@ class KanjiViewController: UICollectionViewController {
         return kanjiData.count
     }
     
+
+    // セルの大きさ
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let getText: String = kanjiData.objectAtIndex(indexPath.item) as String
+        let numText:Int = countElements(getText)
+        
+        let cellSize = CGSizeMake( defaultSize.width * CGFloat(numText), defaultSize.height)
+        return cellSize
+    }
+    
     // セル毎の実装
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -114,20 +128,34 @@ class KanjiViewController: UICollectionViewController {
         
         let getText: String = kanjiData.objectAtIndex(indexPath.item) as String
         let numText:Int = countElements(getText)
-        cell.bounds.size = CGSizeMake((cell.bounds.width) * CGFloat(numText), cell.bounds.height)
+        //cell.bounds.size = CGSizeMake((cell.bounds.width) * CGFloat(numText), cell.bounds.height)
         // 毎回addSubViewしたら大変なことになる...
         if ((cell.subviews).count == 1)
         {
-            let lbl = UILabel()
-            lbl.frame.size = cell.frame.size
-            lbl.frame.origin = CGPointMake(0, 0)
-            lbl.font = UIFont(name: "HiraKakuProN-W6", size: cell.bounds.height)
+            let kanjiBtn = UIButton()
+            kanjiBtn.frame.size = cell.frame.size
+            kanjiBtn.frame.origin = CGPointMake(0, 0)
+            kanjiBtn.titleLabel?.font = UIFont(name: "ackaisyo", size: cell.bounds.height)
+            kanjiBtn.sizeThatFits(cell.bounds.size)
+            kanjiBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            kanjiBtn.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
             
-            lbl.sizeThatFits(cell.bounds.size)
-            lbl.text = getText
+            let getTag = indexData.objectAtIndex(indexPath.item) as String
+            kanjiBtn.tag = getTag.toInt()!
             
-            cell.addSubview(lbl)
+            kanjiBtn.setTitle(getText, forState: UIControlState.Normal)
+            
+            cell.addSubview(kanjiBtn)
         }
         return cell
     }
+    
+    func pushBtn(sender: UIButton)
+    {
+        self.navigationController?.pushViewController(DisplayViewController(id: sender.tag), animated: true)
+    }
+    
+    
 }
+
+
