@@ -24,7 +24,8 @@
 		AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8948B71A35C91E00590784 /* DisplayViewController.swift */; };
 		AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8948BC1A37487100590784 /* ackaisyo.ttf */; };
 		AA8948C81A374B2500590784 /* hakushuKyosho in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C71A374B2500590784 /* hakushuKyosho */; };
-		AA8948CA1A374D0300590784 /* 白舟楷書教漢 in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C91A374D0300590784 /* 白舟楷書教漢 */; };
+		AAE310FE1A3C26F400F5961C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE310FD1A3C26F400F5961C /* FavoriteViewController.swift */; };
+		AAE311001A3C6D8A00F5961C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE310FF1A3C6D8A00F5961C /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,8 @@
 		AA8948B71A35C91E00590784 /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		AA8948BC1A37487100590784 /* ackaisyo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ackaisyo.ttf; path = font/ackaisyo.ttf; sourceTree = "<group>"; };
 		AA8948C71A374B2500590784 /* hakushuKyosho */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hakushuKyosho; path = font/hakushuKyosho; sourceTree = "<group>"; };
-		AA8948C91A374D0300590784 /* 白舟楷書教漢 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "白舟楷書教漢"; sourceTree = "<group>"; };
+		AAE310FD1A3C26F400F5961C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		AAE310FF1A3C6D8A00F5961C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE311001A3C6D8A00F5961C /* iAd.framework in Frameworks */,
 				AA6FCC4F1A3200D4009225F0 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		AA687CA51A31DC480091D0A7 = {
 			isa = PBXGroup;
 			children = (
+				AAE310FF1A3C6D8A00F5961C /* iAd.framework */,
 				AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */,
 				AA687CB01A31DC480091D0A7 /* CoolKanji */,
 				AA687CC61A31DC480091D0A7 /* CoolKanjiTests */,
@@ -116,6 +120,7 @@
 				AA6FCC521A328042009225F0 /* FMDB */,
 				AA687CD31A31E0970091D0A7 /* TitleViewController.swift */,
 				AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */,
+				AAE310FD1A3C26F400F5961C /* FavoriteViewController.swift */,
 				AA0B14F91A32C50100C2754A /* KanjiViewController.swift */,
 				AA8948B71A35C91E00590784 /* DisplayViewController.swift */,
 				AA687CBA1A31DC480091D0A7 /* Images.xcassets */,
@@ -174,7 +179,6 @@
 			children = (
 				AA8948C71A374B2500590784 /* hakushuKyosho */,
 				AA8948BC1A37487100590784 /* ackaisyo.ttf */,
-				AA8948C91A374D0300590784 /* 白舟楷書教漢 */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -260,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8948CA1A374D0300590784 /* 白舟楷書教漢 in Resources */,
 				AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */,
 				AA687CBE1A31DC480091D0A7 /* LaunchScreen.xib in Resources */,
 				AA687CBB1A31DC480091D0A7 /* Images.xcassets in Resources */,
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE310FE1A3C26F400F5961C /* FavoriteViewController.swift in Sources */,
 				AA687CB41A31DC480091D0A7 /* AppDelegate.swift in Sources */,
 				AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */,
 				AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */,

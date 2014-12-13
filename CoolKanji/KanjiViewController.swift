@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iAd
 
-class KanjiViewController: UICollectionViewController {
+class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
 
     // Appdelegate
     var ad: AppDelegate!
@@ -16,9 +17,35 @@ class KanjiViewController: UICollectionViewController {
     var setItem_index1: String!
     var setItem_index2: String!
     var kanjiData: NSMutableArray!
-    var indexData: NSMutableArray!
+    var idData: NSMutableArray!
     
     var defaultSize: CGSize!
+    
+    var adView:ADBannerView!
+    var isBannerView:Bool!
+    
+    // iAdの受信に成功したとき
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        
+        if ( isBannerView == false)
+        {
+            //表示
+            self.adView.alpha = 1.0
+        }
+        isBannerView = true
+    }
+    
+    // iAdの受信に失敗したとき
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        
+        if (isBannerView == true)
+        {
+            //非表示
+            self.adView.alpha = 0.0
+        }
+        isBannerView = false
+        
+    }
     
     override init() {
 
@@ -74,7 +101,12 @@ class KanjiViewController: UICollectionViewController {
         
 
         kanjiData = ad.selectDB(false, column: "kanji", whereCmd: whereCmdInput)
-        indexData = ad.selectDB(false, column: "index3", whereCmd: whereCmdInput) // 後で治す
+        idData = ad.selectDB(false, column: "id", whereCmd: whereCmdInput)
+        
+        //複数選択可能
+        self.collectionView?.allowsMultipleSelection = true
+        
+        self.navigationItem.rightBarButtonItem = ad.favViewBtn
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -84,14 +116,21 @@ class KanjiViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.backgroundColor = UIColor.whiteColor()
+        self.collectionView?.backgroundColor = UIColor.whiteColor()
         
-
+        self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         
-        self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
-        
+        //iAd実装
+        adView = ADBannerView(adType: ADAdType.Banner)
+        adView.frame = CGRectMake(0, self.view.frame.size.height - adView.frame.size.height,
+            adView.frame.size.width, adView.frame.size.height)
+        //最初は非表示
+        adView.alpha = 0.0
+        isBannerView = false
+        adView.delegate = self
+        self.view.addSubview(adView)
     }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -140,7 +179,7 @@ class KanjiViewController: UICollectionViewController {
             kanjiBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             kanjiBtn.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
             
-            let getTag = indexData.objectAtIndex(indexPath.item) as String
+            let getTag = idData.objectAtIndex(indexPath.item) as String
             kanjiBtn.tag = getTag.toInt()!
             
             kanjiBtn.setTitle(getText, forState: UIControlState.Normal)
