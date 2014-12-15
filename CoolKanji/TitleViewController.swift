@@ -42,14 +42,16 @@ class TitleViewController: UIViewController , ADBannerViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
         
         self.view.backgroundColor = UIColor.whiteColor()
-    
-        let titleLbl = UILabel(frame: CGRectMake(50, 100, 300, 100))
-        titleLbl.sizeThatFits(CGSizeMake(300, 100))
-        titleLbl.font = UIFont(name: ad.kanjiFontName, size: 50)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        let titleLbl = UILabel(frame: CGRectMake(ad.WWidth*0.1, 100, ad.WWidth*0.8, 100))
+        titleLbl.textAlignment = NSTextAlignment.Center
+        titleLbl.font = UIFont(name: ad.systemFontName, size: 50)
         titleLbl.textColor = UIColor.blackColor()
         titleLbl.text = "Cool Kanji"
         self.view.addSubview(titleLbl)
@@ -74,6 +76,11 @@ class TitleViewController: UIViewController , ADBannerViewDelegate{
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
   
         self.navigationController?.pushViewController(CategoryViewController(columnName: "index1"), animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     /*
     // MARK: - Navigation

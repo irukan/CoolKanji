@@ -15,12 +15,14 @@
 		AA687CD41A31E0970091D0A7 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA687CD31A31E0970091D0A7 /* TitleViewController.swift */; };
 		AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */; };
 		AA6FCC4F1A3200D4009225F0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */; };
-		AA6FCC511A327F75009225F0 /* testDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AA6FCC501A327F75009225F0 /* testDB.db */; };
 		AA6FCC5E1A328042009225F0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC541A328042009225F0 /* FMDatabase.m */; };
 		AA6FCC5F1A328042009225F0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC561A328042009225F0 /* FMDatabaseAdditions.m */; };
 		AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC581A328042009225F0 /* FMDatabasePool.m */; };
 		AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5A1A328042009225F0 /* FMDatabaseQueue.m */; };
 		AA6FCC621A328042009225F0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6FCC5D1A328042009225F0 /* FMResultSet.m */; };
+		AA837B841A3C99EC00554E3C /* testDB.db in Resources */ = {isa = PBXBuildFile; fileRef = AA837B831A3C99EC00554E3C /* testDB.db */; };
+		AA837B8C1A3CA23B00554E3C /* hkkaikk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA837B891A3CA23B00554E3C /* hkkaikk.ttf */; };
+		AA837B8E1A3CA43B00554E3C /* hakushuKyosho.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA837B8D1A3CA43B00554E3C /* hakushuKyosho.ttf */; };
 		AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8948B71A35C91E00590784 /* DisplayViewController.swift */; };
 		AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8948BC1A37487100590784 /* ackaisyo.ttf */; };
 		AA8948C81A374B2500590784 /* hakushuKyosho in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C71A374B2500590784 /* hakushuKyosho */; };
@@ -52,7 +54,6 @@
 		AA6FCC371A31FF54009225F0 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolKanji-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		AA6FCC501A327F75009225F0 /* testDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.db; sourceTree = "<group>"; };
 		AA6FCC531A328042009225F0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		AA6FCC541A328042009225F0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		AA6FCC551A328042009225F0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -64,6 +65,9 @@
 		AA6FCC5B1A328042009225F0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		AA6FCC5C1A328042009225F0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		AA6FCC5D1A328042009225F0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		AA837B831A3C99EC00554E3C /* testDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.db; sourceTree = "<group>"; };
+		AA837B891A3CA23B00554E3C /* hkkaikk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hkkaikk.ttf; path = font/hkkaikk.ttf; sourceTree = "<group>"; };
+		AA837B8D1A3CA43B00554E3C /* hakushuKyosho.ttf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hakushuKyosho.ttf; sourceTree = "<group>"; };
 		AA8948B71A35C91E00590784 /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		AA8948BC1A37487100590784 /* ackaisyo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ackaisyo.ttf; path = font/ackaisyo.ttf; sourceTree = "<group>"; };
 		AA8948C71A374B2500590784 /* hakushuKyosho */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hakushuKyosho; path = font/hakushuKyosho; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		AA687CB01A31DC480091D0A7 /* CoolKanji */ = {
 			isa = PBXGroup;
 			children = (
+				AA837B831A3C99EC00554E3C /* testDB.db */,
 				AA8948BB1A3746E500590784 /* Font */,
 				AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */,
 				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
@@ -125,7 +130,6 @@
 				AA8948B71A35C91E00590784 /* DisplayViewController.swift */,
 				AA687CBA1A31DC480091D0A7 /* Images.xcassets */,
 				AA687CBC1A31DC480091D0A7 /* LaunchScreen.xib */,
-				AA6FCC501A327F75009225F0 /* testDB.db */,
 				AA687CB11A31DC480091D0A7 /* Supporting Files */,
 			);
 			path = CoolKanji;
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				AA8948C71A374B2500590784 /* hakushuKyosho */,
+				AA837B8D1A3CA43B00554E3C /* hakushuKyosho.ttf */,
+				AA837B891A3CA23B00554E3C /* hkkaikk.ttf */,
 				AA8948BC1A37487100590784 /* ackaisyo.ttf */,
 			);
 			name = Font;
@@ -267,8 +273,10 @@
 				AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */,
 				AA687CBE1A31DC480091D0A7 /* LaunchScreen.xib in Resources */,
 				AA687CBB1A31DC480091D0A7 /* Images.xcassets in Resources */,
+				AA837B841A3C99EC00554E3C /* testDB.db in Resources */,
+				AA837B8C1A3CA23B00554E3C /* hkkaikk.ttf in Resources */,
+				AA837B8E1A3CA43B00554E3C /* hakushuKyosho.ttf in Resources */,
 				AA8948C81A374B2500590784 /* hakushuKyosho in Resources */,
-				AA6FCC511A327F75009225F0 /* testDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

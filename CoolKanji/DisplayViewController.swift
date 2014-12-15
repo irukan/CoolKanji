@@ -53,20 +53,26 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.view.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
 
         
-        let whereCmd = "id=" + String(m_id) //後で治す
+        let whereCmd = "id=" + String(m_id)
         
-        let kanji = ad.selectDB(false, column: "kanji", whereCmd: whereCmd)
+        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: whereCmd)).objectAtIndex(0) as String
+        let kanjiCount = countElements(kanji)
         
-        let lblKanji = UILabel(frame: CGRectMake(ad.WWidth/10.0, ad.WHeight/10.0, ad.WWidth*0.8, ad.WHeight*0.5))
-        lblKanji.sizeThatFits(CGSizeMake(ad.WWidth*0.8, ad.WHeight*0.5))
-        lblKanji.font = UIFont(name: ad.kanjiFontName, size: ad.WWidth*0.8)
+        let displayWidth = ad.WWidth * 0.8
+        let displayHeight = ad.WHeight * 0.45
+        let lblKanji = UILabel(frame: CGRectMake(ad.WWidth/10.0, ad.WHeight/10.0, displayWidth, displayHeight))
+        lblKanji.sizeThatFits(CGSizeMake(displayWidth, displayHeight))
+        lblKanji.font = UIFont(name: ad.kanjiFontName, size: displayWidth / CGFloat(kanjiCount))
         lblKanji.textColor = UIColor.blackColor()
-        lblKanji.text = kanji.objectAtIndex(0) as String
+        lblKanji.text = kanji as String
         lblKanji.layer.borderColor = UIColor.blackColor().CGColor
         lblKanji.layer.borderWidth = 3.0
         self.view.addSubview(lblKanji)
@@ -82,6 +88,14 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
             addFavorite.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
             self.view.addSubview(addFavorite)
         }
+        
+        
+        let meaning = (ad.selectDB(false, column: "meaning", whereCmd: whereCmd)).objectAtIndex(0) as String
+        
+        let lblMeaning = UILabel(frame: CGRectMake(lblKanji.frame.origin.x, lblKanji.frame.origin.y + 50, displayWidth, 100))
+        lblMeaning.font = UIFont(name: ad.systemFontName, size: 10)
+        
+        
         
         self.navigationItem.rightBarButtonItem = ad.favViewBtn
         
@@ -101,6 +115,7 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         ad.addFavID(self.m_id)
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

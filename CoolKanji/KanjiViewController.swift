@@ -49,9 +49,13 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
     
     override init() {
 
+        // AppDelegate
+        ad = UIApplication.sharedApplication().delegate as AppDelegate
+
         //レイアウト
         let layout = UICollectionViewFlowLayout()
-        defaultSize = CGSizeMake(80, 80)
+        defaultSize = CGSizeMake(ad.WWidth/2.5, ad.WWidth/2.5)
+        
         // セルのサイズ
         layout.itemSize = defaultSize
         // セクションごとのヘッダーのサイズ
@@ -66,9 +70,6 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
         layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
 
         super.init(collectionViewLayout: layout)
-        
-        // AppDelegate
-        ad = UIApplication.sharedApplication().delegate as AppDelegate
         
         // 上位階層のCateforyViewControllerの選択項目を取得する　←後で共通化する
         let parentInformation: NSMutableArray = NSMutableArray()
@@ -116,6 +117,8 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.collectionView?.backgroundColor = UIColor.whiteColor()
         
         self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
@@ -153,7 +156,16 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
         let getText: String = kanjiData.objectAtIndex(indexPath.item) as String
         let numText:Int = countElements(getText)
         
-        let cellSize = CGSizeMake( defaultSize.width * CGFloat(numText), defaultSize.height)
+        var cellSize: CGSize
+        if (numText > 1 )
+        {
+            cellSize = CGSizeMake( ad.WWidth*0.9, defaultSize.height)
+        }
+        else
+        {
+            cellSize = CGSizeMake( defaultSize.width, defaultSize.height)
+        }
+        
         return cellSize
     }
     
@@ -162,8 +174,8 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
         
         let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as UICollectionViewCell
         
-        cell.layer.borderColor = UIColor.greenColor().CGColor
-        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = ad.japanRed.CGColor
+        cell.layer.borderWidth = 2.0
         
         let getText: String = kanjiData.objectAtIndex(indexPath.item) as String
         let numText:Int = countElements(getText)
@@ -174,7 +186,7 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
             let kanjiBtn = UIButton()
             kanjiBtn.frame.size = cell.frame.size
             kanjiBtn.frame.origin = CGPointMake(0, 0)
-            kanjiBtn.titleLabel?.font = UIFont(name: "ackaisyo", size: cell.bounds.height)
+            kanjiBtn.titleLabel?.font = UIFont(name: ad.kanjiFontName, size: (cell.bounds.width)/CGFloat(numText))
             kanjiBtn.sizeThatFits(cell.bounds.size)
             kanjiBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             kanjiBtn.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)

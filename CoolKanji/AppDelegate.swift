@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var WHeight:CGFloat!
     var japanRed:UIColor!
     var kanjiFontName:String!
+    var systemFontName:String!
     
     var db:FMDatabase!
     
@@ -32,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.WWidth = window?.bounds.width
         self.WHeight = window?.bounds.height
         self.japanRed = UIColor(red: 230.0/255.0, green: 32.0/255.0, blue: 71.0/255.0, alpha: 1.0)
-        self.kanjiFontName = "ackaisyo"
+        
+        self.kanjiFontName = "HiraMinProN-W6"
+        self.systemFontName = "ArialRoundedMTBold"
         
         // FMDB init with CoolKnji data
         let dataPath = NSBundle.mainBundle().pathForResource("testDB", ofType: "db")
@@ -54,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Favorite 画面に行くボタン
         self.favViewBtn = UIBarButtonItem()
         self.favViewBtn.target = self
+        
         self.favViewBtn.action = "pushFav:"
         self.favViewBtn.title = "Favorite"
         

@@ -97,12 +97,19 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
         
         for (var i = 0; i < items.count; i++)
         {
+            let getText = items[i] as String
+            let numText = countElements(getText) as Int
             let btn = UIButton()
-            btn.setTitle(items[i] as? String, forState: UIControlState.Normal)
-            btn.titleLabel?.font = UIFont(name: ad.kanjiFontName, size: 50)
-            btn.backgroundColor = ad.japanRed//UIColor.redColor()
+            btn.setTitle(getText, forState: UIControlState.Normal)
+        
+            btn.layer.cornerRadius = 30
+            btn.titleLabel?.font = UIFont(name: ad.systemFontName, size: 50)
+            btn.titleLabel?.minimumScaleFactor = 10
+            btn.titleLabel?.adjustsFontSizeToFitWidth = true
+            btn.backgroundColor = ad.japanRed
             btn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             btn.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
+           
             
             buttons.addObject(btn)
         }
@@ -137,6 +144,7 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         let scrollView = UIScrollView(frame: self.view.bounds)
         
@@ -145,7 +153,7 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
         
         for (var i=0; i < buttons.count; i++)
         {
-            (buttons[i] as UIButton).frame = CGRectMake(ad.WWidth*0.2, 50 + offset * CGFloat(i), ad.WWidth*0.6, 50)
+            (buttons[i] as UIButton).frame = CGRectMake(ad.WWidth*0.15, 50 + offset * CGFloat(i), ad.WWidth*0.7, 60)
             scrollView.addSubview(buttons[i] as UIButton)
         }
         

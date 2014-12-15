@@ -28,9 +28,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>白舟楷書教漢</string>
+		<string>hakushuKyosho.ttf</string>
+		<string>hkkaikk.ttf</string>
 		<string>ackaisyo.ttf</string>
-		<string>hakushuKyosho</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -41,8 +41,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

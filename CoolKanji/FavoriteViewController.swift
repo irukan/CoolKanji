@@ -35,11 +35,14 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
             self.adView.alpha = 0.0
         }
         isBannerView = false
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
         
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
@@ -55,6 +58,8 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         isBannerView = false
         adView.delegate = self
         self.view.addSubview(adView)
+        
+        self.tableView.frame.size = CGSizeMake(ad.WWidth, ad.WHeight - adView.frame.size.height)
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,8 +81,8 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         let getFavIDs: NSMutableArray = ad.getFavIDs()
         let getID = getFavIDs.objectAtIndex(indexPath.row) as Int
         
-        let kanji = ad.selectDB(false, column: "kanji", whereCmd: "id="+String(getID))
-        cell.textLabel?.text = kanji.objectAtIndex(0) as String
+        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: "id="+String(getID))).objectAtIndex(0) as String
+        cell.textLabel?.text = kanji as String
         cell.tag = getID
 
         return cell
@@ -96,6 +101,10 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         let getID: Int = cell.tag
         // 削除
         ad.deleteFavID(getID)
-        self.tableView.reloadData()
+        
+        //アニメーション的に削除
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        //self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        //self.tableView.reloadData()
     }
 }
