@@ -114,11 +114,13 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        ad.navigationBarCtrl(target: self, title: "Kanji")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+ 
         self.collectionView?.backgroundColor = UIColor.whiteColor()
         
         self.collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")

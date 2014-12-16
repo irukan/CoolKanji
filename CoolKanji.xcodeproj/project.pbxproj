@@ -26,6 +26,8 @@
 		AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8948B71A35C91E00590784 /* DisplayViewController.swift */; };
 		AA8948BD1A37487100590784 /* ackaisyo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8948BC1A37487100590784 /* ackaisyo.ttf */; };
 		AA8948C81A374B2500590784 /* hakushuKyosho in Resources */ = {isa = PBXBuildFile; fileRef = AA8948C71A374B2500590784 /* hakushuKyosho */; };
+		AABFEE221A3F30D3000C85E9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5965B91A3F29E20069AD07 /* AssetsLibrary.framework */; };
+		AABFEE281A3F327A000C85E9 /* ImageSave.m in Sources */ = {isa = PBXBuildFile; fileRef = AABFEE271A3F327A000C85E9 /* ImageSave.m */; };
 		AAE310FE1A3C26F400F5961C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE310FD1A3C26F400F5961C /* FavoriteViewController.swift */; };
 		AAE311001A3C6D8A00F5961C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE310FF1A3C6D8A00F5961C /* iAd.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		AA0B14F91A32C50100C2754A /* KanjiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiViewController.swift; sourceTree = "<group>"; };
+		AA5965B91A3F29E20069AD07 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AA687CAE1A31DC480091D0A7 /* CoolKanji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolKanji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA687CB21A31DC480091D0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA687CB31A31DC480091D0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 		AA8948B71A35C91E00590784 /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		AA8948BC1A37487100590784 /* ackaisyo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ackaisyo.ttf; path = font/ackaisyo.ttf; sourceTree = "<group>"; };
 		AA8948C71A374B2500590784 /* hakushuKyosho */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hakushuKyosho; path = font/hakushuKyosho; sourceTree = "<group>"; };
+		AABFEE261A3F327A000C85E9 /* ImageSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSave.h; sourceTree = "<group>"; };
+		AABFEE271A3F327A000C85E9 /* ImageSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSave.m; sourceTree = "<group>"; };
 		AAE310FD1A3C26F400F5961C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		AAE310FF1A3C6D8A00F5961C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABFEE221A3F30D3000C85E9 /* AssetsLibrary.framework in Frameworks */,
 				AAE311001A3C6D8A00F5961C /* iAd.framework in Frameworks */,
 				AA6FCC4F1A3200D4009225F0 /* libsqlite3.0.dylib in Frameworks */,
 			);
@@ -98,6 +104,7 @@
 		AA687CA51A31DC480091D0A7 = {
 			isa = PBXGroup;
 			children = (
+				AA5965B91A3F29E20069AD07 /* AssetsLibrary.framework */,
 				AAE310FF1A3C6D8A00F5961C /* iAd.framework */,
 				AA6FCC4E1A3200D4009225F0 /* libsqlite3.0.dylib */,
 				AA687CB01A31DC480091D0A7 /* CoolKanji */,
@@ -119,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				AA837B831A3C99EC00554E3C /* testDB.db */,
+				AABFEE251A3F327A000C85E9 /* ImageSave */,
 				AA8948BB1A3746E500590784 /* Font */,
 				AA6FCC4D1A3200A0009225F0 /* CoolKanji-Bridging-Header.h */,
 				AA687CB31A31DC480091D0A7 /* AppDelegate.swift */,
@@ -187,6 +195,15 @@
 				AA8948BC1A37487100590784 /* ackaisyo.ttf */,
 			);
 			name = Font;
+			sourceTree = "<group>";
+		};
+		AABFEE251A3F327A000C85E9 /* ImageSave */ = {
+			isa = PBXGroup;
+			children = (
+				AABFEE261A3F327A000C85E9 /* ImageSave.h */,
+				AABFEE271A3F327A000C85E9 /* ImageSave.m */,
+			);
+			path = ImageSave;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +315,7 @@
 				AA687CB41A31DC480091D0A7 /* AppDelegate.swift in Sources */,
 				AA6FCC601A328042009225F0 /* FMDatabasePool.m in Sources */,
 				AA6FCC381A31FF54009225F0 /* CategoryViewController.swift in Sources */,
+				AABFEE281A3F327A000C85E9 /* ImageSave.m in Sources */,
 				AA6FCC611A328042009225F0 /* FMDatabaseQueue.m in Sources */,
 				AA687CD41A31E0970091D0A7 /* TitleViewController.swift in Sources */,
 				AA8948B81A35C91E00590784 /* DisplayViewController.swift in Sources */,

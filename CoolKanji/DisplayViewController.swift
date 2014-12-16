@@ -14,6 +14,7 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
     var m_id: Int!
     var ad: AppDelegate!
     
+    var lblKanji: UILabel!
     var adView:ADBannerView!
     var isBannerView:Bool!
     
@@ -50,54 +51,18 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-
+    override func viewWillAppear(animated: Bool) {
+        ad.navigationBarCtrl(target: self, title: "Kanji View")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.whiteColor()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
 
-        
-        let whereCmd = "id=" + String(m_id)
-        
-        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: whereCmd)).objectAtIndex(0) as String
-        let kanjiCount = countElements(kanji)
-        
-        let displayWidth = ad.WWidth * 0.8
-        let displayHeight = ad.WHeight * 0.45
-        let lblKanji = UILabel(frame: CGRectMake(ad.WWidth/10.0, ad.WHeight/10.0, displayWidth, displayHeight))
-        lblKanji.sizeThatFits(CGSizeMake(displayWidth, displayHeight))
-        lblKanji.font = UIFont(name: ad.kanjiFontName, size: displayWidth / CGFloat(kanjiCount))
-        lblKanji.textColor = UIColor.blackColor()
-        lblKanji.text = kanji as String
-        lblKanji.layer.borderColor = UIColor.blackColor().CGColor
-        lblKanji.layer.borderWidth = 3.0
-        self.view.addSubview(lblKanji)
-        
-        
-        let (isSet, index) = ad.isFavIDSet(m_id)
-        if(isSet == false)
-        {
-            let addFavorite = UIButton(frame: CGRectMake(ad.WWidth*0.8, ad.WHeight*0.8, 100,100))
-            addFavorite.setTitle("+", forState: UIControlState.Normal)
-            addFavorite.titleLabel?.font = UIFont(name: "HiraKakuProN-W3", size: 50)
-            addFavorite.setTitleColor(UIColor.brownColor(), forState: UIControlState.Normal)
-            addFavorite.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
-            self.view.addSubview(addFavorite)
-        }
-        
-        
-        let meaning = (ad.selectDB(false, column: "meaning", whereCmd: whereCmd)).objectAtIndex(0) as String
-        
-        let lblMeaning = UILabel(frame: CGRectMake(lblKanji.frame.origin.x, lblKanji.frame.origin.y + 50, displayWidth, 100))
-        lblMeaning.font = UIFont(name: ad.systemFontName, size: 10)
-        
-        
-        
-        self.navigationItem.rightBarButtonItem = ad.favViewBtn
         
         //iAd実装
         adView = ADBannerView(adType: ADAdType.Banner)
@@ -108,13 +73,56 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         isBannerView = false
         adView.delegate = self
         self.view.addSubview(adView)
+        let whereCmd = "id=" + String(m_id)
+        
+        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: whereCmd)).objectAtIndex(0) as String
+        let kanjiCount = countElements(kanji)
+        
+        let displayWidth = ad.WWidth * 0.8
+        let displayHeight = ad.WHeight * 0.45
+        lblKanji = UILabel(frame: CGRectMake(ad.WWidth/10.0, ad.WHeight/10.0, displayWidth, displayHeight))
+        lblKanji.sizeThatFits(CGSizeMake(displayWidth, displayHeight))
+        lblKanji.font = UIFont(name: ad.kanjiFontName, size: displayWidth / CGFloat(kanjiCount))
+        lblKanji.textColor = UIColor.blackColor()
+        lblKanji.text = kanji as String
+        lblKanji.layer.borderColor = ad.japanRed.CGColor
+        lblKanji.layer.borderWidth = 3.0
+        self.view.addSubview(lblKanji)
+        
+        let (isSet, index) = ad.isFavIDSet(m_id)
+        
+        let meaning = (ad.selectDB(false, column: "meaning", whereCmd: whereCmd)).objectAtIndex(0) as String
+        
+        let lblMeaning = UILabel(frame: CGRectMake(lblKanji.frame.origin.x, lblKanji.frame.origin.y + 50, displayWidth, 100))
+        lblMeaning.font = UIFont(name: ad.systemFontName, size: 10)
+        
+        if(isSet == false)
+        {
+            let favPlus = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: "AddFav:")
+            self.navigationItem.rightBarButtonItem = favPlus
+        }
+        
+        // ImageSave
+        let saveImgBtn = UIButton(frame: CGRectMake(ad.WWidth*0.7, ad.WHeight*0.8, 100,100))
+        saveImgBtn.setTitle("save image", forState: UIControlState.Normal)
+        saveImgBtn.setTitleColor(UIColor.brownColor(), forState: UIControlState.Normal)
+        saveImgBtn.addTarget(self, action: "saveImage:", forControlEvents: UIControlEvents.TouchDown)
+        self.view.addSubview(saveImgBtn)
     }
  
-    func pushBtn(sender: UIButton)
+    func AddFav(sender: UIButton)
     {
         ad.addFavID(self.m_id)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem()
     }
     
+    func saveImage(sender: UIButton)
+    {
+        lblKanji.layer.borderWidth = 0.0
+        let imgSave = ImageSave()
+        let lblImage = imgSave.imageFromView(lblKanji, size: CGSizeMake(ad.WWidth, ad.WHeight), bkColor: UIColor.whiteColor())
+        imgSave.saveImageToPhotosAlbum(lblImage)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

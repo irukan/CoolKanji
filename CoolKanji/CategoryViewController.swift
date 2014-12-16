@@ -55,6 +55,10 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
         isBannerView = false
         
     }
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
     
     init(columnName: String) {
         super.init(nibName: nil, bundle: nil)
@@ -107,7 +111,7 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
             btn.titleLabel?.minimumScaleFactor = 10
             btn.titleLabel?.adjustsFontSizeToFitWidth = true
             btn.backgroundColor = ad.japanRed
-            btn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             btn.addTarget(self, action: "pushBtn:", forControlEvents: UIControlEvents.TouchDown)
            
             
@@ -144,7 +148,6 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.whiteColor()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         let scrollView = UIScrollView(frame: self.view.bounds)
         
@@ -188,6 +191,10 @@ class CategoryViewController: UIViewController, ADBannerViewDelegate {
     }
     
 
+    override func viewWillAppear(animated: Bool) {
+        ad.navigationBarCtrl(target: self, title: "Category")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -1,13 +1,14 @@
 //
-//  return-Bridging-Header.h
-//  return
+//  CoolKanji-Bridging-Header.h
+//  CoolKanji
 //
 //  Created by kayama on 2014/11/03.
 //  Copyright (c) 2014年 Kayama. All rights reserved.
 //
 
-#ifndef return_Bridging_Header_h
-#define return_Bridging_Header_h
+#ifndef CoolKanji_Bridging_Header_h
+#define CoolKanji_Bridging_Header_h
 
-#import "DDEditor/DDEditor.h"
+#import "ImageSave/ImageSave.h"
+#import "FMDB/FMDB.h"
 #endif

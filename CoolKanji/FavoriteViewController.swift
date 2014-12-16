@@ -37,6 +37,10 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         isBannerView = false
     }
 
+    override func viewWillAppear(animated: Bool) {
+        ad.navigationBarCtrl(target: self, title: "BookMark")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

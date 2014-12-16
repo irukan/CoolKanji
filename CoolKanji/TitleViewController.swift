@@ -79,9 +79,13 @@ class TitleViewController: UIViewController , ADBannerViewDelegate{
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor.whiteColor()
+        // Bar 非表示
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        self.navigationItem.backBarButtonItem = backBtn
     }
+
     /*
     // MARK: - Navigation
 

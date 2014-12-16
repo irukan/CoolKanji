@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
+        // Status Barの色を白に。Info.plistの設定も必要
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         self.WWidth = window?.bounds.width
@@ -55,16 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.synchronize()
         }
         // Favorite 画面に行くボタン
-        self.favViewBtn = UIBarButtonItem()
-        self.favViewBtn.target = self
-        
-        self.favViewBtn.action = "pushFav:"
-        self.favViewBtn.title = "Favorite"
-        
+        self.favViewBtn = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "pushFav:")
+       
         self.navController = UINavigationController(rootViewController: TitleViewController())
-        // ナビゲーションバー消す
-        //self.navController?.navigationBarHidden = true
-        //self.navController?.interactivePopGestureRecognizer.enabled = true
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
 
@@ -74,6 +70,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func pushFav(sender: UIButton)
     {
         self.navController?.pushViewController(FavoriteViewController(), animated: true)
+    }
+    
+    // NavigationBarコントロール。viewWillApperで呼ぶ
+    func navigationBarCtrl(target target_in: UIViewController!, title title_in: String)
+    {
+        // Bar 表示
+        target_in.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        // 背景を白
+        target_in.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        
+        // フォントを黒
+        target_in.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        // タイトルを設定
+        let title = UILabel(frame: CGRectZero)
+        title.text = title_in
+// /       title.font = UIFont(name: self.systemFontName, size: 1)
+        title.textColor = UIColor.whiteColor()
+        target_in.navigationItem.titleView = title
+        
+        let backBtn = UIBarButtonItem()
+        backBtn.title = ""
+        target_in.navigationItem.backBarButtonItem = backBtn
     }
     
     // SELECT用関数
@@ -218,6 +238,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    
 }
 
