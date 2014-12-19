@@ -67,7 +67,7 @@ class KanjiViewController: UICollectionViewController,ADBannerViewDelegate {
         // アイテムごとのスペースの最小値
         layout.minimumInteritemSpacing = 8.0
         // セクションの外枠のスペース
-        layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
+        layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20)
 
         super.init(collectionViewLayout: layout)
         

@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.WWidth = window?.bounds.width
         self.WHeight = window?.bounds.height
-        self.japanRed = UIColor(red: 230.0/255.0, green: 32.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+        self.japanRed = UIColor(red: 200.0/255.0, green: 20.0/255.0, blue: 25.0/255.0, alpha: 1.0)
         
         self.kanjiFontName = "HiraMinProN-W6"
         self.systemFontName = "ArialRoundedMTBold"

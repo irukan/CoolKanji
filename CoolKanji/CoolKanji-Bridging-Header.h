@@ -11,4 +11,5 @@
 
 #import "ImageSave/ImageSave.h"
 #import "FMDB/FMDB.h"
+#import <SWTableViewCell/SWTableViewCell.h>
 #endif

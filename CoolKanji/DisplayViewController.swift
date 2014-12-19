@@ -17,6 +17,7 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
     var lblKanji: UILabel!
     var adView:ADBannerView!
     var isBannerView:Bool!
+    var hiderightBtn:Bool!
     
     // iAdの受信に成功したとき
     func bannerViewDidLoadAd(banner: ADBannerView!) {
@@ -45,6 +46,7 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
     {
         super.init(nibName: nil, bundle: nil)
         self.m_id = id
+        self.hiderightBtn = false
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -53,6 +55,20 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         ad.navigationBarCtrl(target: self, title: "Kanji View")
+        
+        let (isSet, index) = ad.isFavIDSet(m_id)
+        if(isSet == false)
+        {
+            let favPlus = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: "AddFav:")
+            self.navigationItem.rightBarButtonItem = favPlus
+        }
+        else
+        {
+            if (hiderightBtn == false)
+            {
+                self.navigationItem.rightBarButtonItem = ad.favViewBtn
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -96,12 +112,6 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         let lblMeaning = UILabel(frame: CGRectMake(lblKanji.frame.origin.x, lblKanji.frame.origin.y + 50, displayWidth, 100))
         lblMeaning.font = UIFont(name: ad.systemFontName, size: 10)
         
-        if(isSet == false)
-        {
-            let favPlus = UIBarButtonItem(barButtonSystemItem:.Add, target: self, action: "AddFav:")
-            self.navigationItem.rightBarButtonItem = favPlus
-        }
-        
         // ImageSave
         let saveImgBtn = UIButton(frame: CGRectMake(ad.WWidth*0.7, ad.WHeight*0.8, 100,100))
         saveImgBtn.setTitle("save image", forState: UIControlState.Normal)
@@ -110,18 +120,33 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         self.view.addSubview(saveImgBtn)
     }
  
-    func AddFav(sender: UIButton)
+    func AddFav(sender: UIBarButtonItem)
     {
+        // お気に入りに追加
         ad.addFavID(self.m_id)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem()
+
+        // 右上に吸い込まれるアニメーション
+        let kanjiImage = ImageSave.imageFromView(lblKanji, size: lblKanji.frame.size, bkColor: UIColor.whiteColor())
+        let kanjiImageView = UIImageView(image: kanjiImage)
+        kanjiImageView.frame.origin = lblKanji.frame.origin
+        self.view.addSubview(kanjiImageView)
+
+        self.navigationItem.rightBarButtonItem = self.ad.favViewBtn
+        UIView.animateWithDuration(1.0, animations: {
+            
+            kanjiImageView.frame = CGRectMake(self.ad.WWidth, 0, 0, 0)
+            kanjiImageView.alpha = 0.0
+
+            }, completion: {(_) -> Void in
+                kanjiImageView.removeFromSuperview()
+        })
     }
     
     func saveImage(sender: UIButton)
     {
         lblKanji.layer.borderWidth = 0.0
-        let imgSave = ImageSave()
-        let lblImage = imgSave.imageFromView(lblKanji, size: CGSizeMake(ad.WWidth, ad.WHeight), bkColor: UIColor.whiteColor())
-        imgSave.saveImageToPhotosAlbum(lblImage)
+        let lblImage = ImageSave.imageFromView(lblKanji, size: CGSizeMake(ad.WWidth, ad.WHeight), bkColor: UIColor.whiteColor())
+        ImageSave.saveImageToPhotosAlbum(lblImage)
     }
 
     override func didReceiveMemoryWarning() {

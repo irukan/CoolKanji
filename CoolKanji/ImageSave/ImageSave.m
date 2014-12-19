@@ -10,7 +10,7 @@
 
 
 @implementation ImageSave
-- (UIImage *)imageFromView:(UIView *)view size:(CGSize)size_in bkColor:(UIColor*)color_in
++ (UIImage *)imageFromView:(UIView *)view size:(CGSize)size_in bkColor:(UIColor*)color_in
 {
     // 必要なUIImageサイズ分のコンテキスト確保
     UIGraphicsBeginImageContextWithOptions(size_in, YES, 0);
@@ -43,7 +43,7 @@
 
 
 // 写真へのアクセスが許可されている場合はYESを返す。まだ許可するか選択されていない場合はYESを返す。
-- (BOOL)isPhotoAccessEnableWithIsShowAlert:(BOOL)_isShowAlert {
++ (BOOL)isPhotoAccessEnableWithIsShowAlert:(BOOL)_isShowAlert {
     // このアプリの写真への認証状態を取得する
     ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
     
@@ -92,7 +92,7 @@
     return isAuthorization;
 }
 
-- (void)saveImageToPhotosAlbum:(UIImage*)_image {
++ (void)saveImageToPhotosAlbum:(UIImage*)_image {
     
     BOOL isPhotoAccessEnable = [self isPhotoAccessEnableWithIsShowAlert:YES];
     
@@ -130,7 +130,7 @@
 }
 
 
-- (UIColor *)invisibleColor
++ (UIColor *)invisibleColor
 {
     return [UIColor clearColor];
 }

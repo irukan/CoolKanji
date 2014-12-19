@@ -16,10 +16,10 @@
 {
 }
 
--(UIImage *)imageFromView:(UIView *)view size:(CGSize)size_in bkColor:(UIColor*)color_in;
-- (void)saveImageToPhotosAlbum:(UIImage*)_image;
-- (BOOL)isPhotoAccessEnableWithIsShowAlert:(BOOL)_isShowAlert;
-- (UIColor *)invisibleColor;
++ (UIImage *)imageFromView:(UIView *)view size:(CGSize)size_in bkColor:(UIColor*)color_in;
++ (void)saveImageToPhotosAlbum:(UIImage*)_image;
++ (BOOL)isPhotoAccessEnableWithIsShowAlert:(BOOL)_isShowAlert;
++ (UIColor *)invisibleColor;
 @end
 
 #endif

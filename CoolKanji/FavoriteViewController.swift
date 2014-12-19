@@ -50,9 +50,7 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         
         // AppDelegate
         ad = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+
         //iAd実装
         adView = ADBannerView(adType: ADAdType.Banner)
         adView.frame = CGRectMake(0, self.view.frame.size.height - adView.frame.size.height,
@@ -62,12 +60,26 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         isBannerView = false
         adView.delegate = self
         self.view.addSubview(adView)
+
         
-        self.tableView.frame.size = CGSizeMake(ad.WWidth, ad.WHeight - adView.frame.size.height)
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //線なし
+        self.tableView.separatorColor = UIColor.clearColor()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        //黒の半透明
+        //cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        //角丸
+        cell.layer.cornerRadius = 10.0
+        cell.layer.borderColor = ad.japanRed.CGColor
+        cell.layer.borderWidth = 2
     }
     
     override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
@@ -87,8 +99,10 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         
         let kanji = (ad.selectDB(false, column: "kanji", whereCmd: "id="+String(getID))).objectAtIndex(0) as String
         cell.textLabel?.text = kanji as String
+        //cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.font = UIFont(name: ad.systemFontName, size: 20)
         cell.tag = getID
-
+        
         return cell
     }
     
@@ -96,7 +110,10 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath)!
         let getID: Int = cell.tag
-        self.navigationController?.pushViewController(DisplayViewController(id: getID), animated: true)
+        
+        let dispView = DisplayViewController(id: getID)
+        dispView.hiderightBtn = true
+        self.navigationController?.pushViewController(dispView, animated: true)
     }
     
     // Edit
