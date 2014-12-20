@@ -9,7 +9,7 @@
 import UIKit
 import iAd
 
-class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
+class FavoriteViewController: UITableViewController, ADBannerViewDelegate, SWTableViewCellDelegate {
 
     var ad:AppDelegate!
     var adView:ADBannerView!
@@ -61,8 +61,7 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         adView.delegate = self
         self.view.addSubview(adView)
 
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //線なし
         self.tableView.separatorColor = UIColor.clearColor()
@@ -92,7 +91,7 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyCell")
+        let cell: SWTableViewCell = SWTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyCell")
 
         let getFavIDs: NSMutableArray = ad.getFavIDs()
         let getID = getFavIDs.objectAtIndex(indexPath.row) as Int
@@ -100,10 +99,27 @@ class FavoriteViewController: UITableViewController, ADBannerViewDelegate {
         let kanji = (ad.selectDB(false, column: "kanji", whereCmd: "id="+String(getID))).objectAtIndex(0) as String
         cell.textLabel?.text = kanji as String
         //cell.textLabel?.textColor = UIColor.whiteColor()
-        cell.textLabel?.font = UIFont(name: ad.systemFontName, size: 20)
+        cell.textLabel?.font = UIFont(name: ad.systemFontName, size: 25)
         cell.tag = getID
         
+        cell.leftUtilityButtons = leftButtons(cell.tag)
+        cell.delegate = self
+        
         return cell
+    }
+
+    // 左ボタン達
+    func leftButtons(id: Int)->NSArray!
+    {
+        let leftBtns = NSMutableArray()
+        
+        let index1: String = (ad.selectDB(false, column: "index1", whereCmd: "id=" + String(id) )).objectAtIndex(0) as String
+        let index2: String = (ad.selectDB(false, column: "index2", whereCmd: "id=" + String(id) )).objectAtIndex(0) as String
+        
+        leftBtns.sw_addUtilityButtonWithColor(ad.japanRed, title: index1)
+        leftBtns.sw_addUtilityButtonWithColor(ad.japanRed, title: index2)
+        
+        return leftBtns
     }
     
     // セル選択
