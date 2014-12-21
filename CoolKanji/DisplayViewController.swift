@@ -89,9 +89,8 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         isBannerView = false
         adView.delegate = self
         self.view.addSubview(adView)
-        let whereCmd = "id=" + String(m_id)
         
-        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: whereCmd)).objectAtIndex(0) as String
+        let kanji = (ad.selectDB(false, column: "kanji", whereCmd: "id=" + String(m_id))).objectAtIndex(0) as String
         let kanjiCount = countElements(kanji)
         
         let displayWidth = ad.WWidth * 0.8
@@ -107,7 +106,7 @@ class DisplayViewController: UIViewController,ADBannerViewDelegate {
         
         let (isSet, index) = ad.isFavIDSet(m_id)
         
-        let meaning = (ad.selectDB(false, column: "meaning", whereCmd: whereCmd)).objectAtIndex(0) as String
+        let meaning = (ad.selectDB(false, column: "meaning", whereCmd: "id=" + String(m_id))).objectAtIndex(0) as String
         
         let lblMeaning = UILabel(frame: CGRectMake(lblKanji.frame.origin.x, lblKanji.frame.origin.y + 50, displayWidth, 100))
         lblMeaning.font = UIFont(name: ad.systemFontName, size: 10)

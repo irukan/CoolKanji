@@ -15,6 +15,7 @@
     // 必要なUIImageサイズ分のコンテキスト確保
     UIGraphicsBeginImageContextWithOptions(size_in, YES, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh); // 高品質
     
     // 画像化する部分の位置を調整
     //左上(原点)
@@ -129,6 +130,29 @@
     }
 }
 
++ (UIImage *)reSizeUIImage:(UIImage *)original width:(CGFloat)width_in height:(CGFloat)height_in;
+{
+    UIImage *tempImage = original;
+    
+    // 取得した画像の縦サイズ、横サイズを取得する
+    int imageW = tempImage.size.width;
+    int imageH = tempImage.size.height;
+    
+    // リサイズする倍率を作成する。
+    float scale = (imageW > imageH ? width_in/imageH : height_in/imageW);
+    
+    // 比率に合わせてリサイズする。 
+    // ポイントはUIGraphicsXXとdrawInRectを用いて、リサイズ後のサイズで、
+    // aImageを書き出し、書き出した画像を取得することで、
+    // リサイズ後の画像を取得します。
+    CGSize resizedSize = CGSizeMake(imageW * scale, imageH * scale);
+    UIGraphicsBeginImageContext(resizedSize);
+    [tempImage drawInRect:CGRectMake(0, 0, resizedSize.width, resizedSize.height)];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
 
 + (UIColor *)invisibleColor
 {

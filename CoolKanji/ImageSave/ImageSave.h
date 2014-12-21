@@ -20,6 +20,7 @@
 + (void)saveImageToPhotosAlbum:(UIImage*)_image;
 + (BOOL)isPhotoAccessEnableWithIsShowAlert:(BOOL)_isShowAlert;
 + (UIColor *)invisibleColor;
++ (UIImage *)reSizeUIImage:(UIImage *)original width:(CGFloat)width_in height:(CGFloat)height_in;
 @end
 
 #endif
